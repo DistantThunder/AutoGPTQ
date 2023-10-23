@@ -155,7 +155,8 @@ if BUILD_CUDA_EXT:
                 "autogptq_extension/exllama/cuda_func/q4_matmul.cu",
                 "autogptq_extension/exllama/cuda_func/q4_matrix.cu"
             ],
-            extra_link_args=extra_link_args
+            extra_link_args=extra_link_args,
+            define_macros=[("HIPBLAS_USE_HIP_HALF", "1")]
         )
     )
     extensions.append(
@@ -166,7 +167,8 @@ if BUILD_CUDA_EXT:
                 "autogptq_extension/exllamav2/cuda/q_matrix.cu",
                 "autogptq_extension/exllamav2/cuda/q_gemm.cu",
             ],
-            extra_link_args=extra_link_args
+            extra_link_args=extra_link_args,
+            define_macros=[("HIPBLAS_USE_HIP_HALF", "1")]
         )
     )
 
